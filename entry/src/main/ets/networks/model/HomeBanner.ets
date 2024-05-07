@@ -1,10 +1,10 @@
 export class HomeBanner {
   desc: string = ""
-  id: number
+  id: number = 0
   imagePath: string = ""
-  isVisible: number
-  order: number
+  isVisible: number = 0
+  order: number = 0
   title: string = ""
-  type: number
+  type: number = 0
   url: string = ""
 }

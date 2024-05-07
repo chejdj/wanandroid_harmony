@@ -1,4 +1,5 @@
 import http from '@ohos.net.http';
+import { ArticlesData } from './model/ArticlesData';
 import { HomeBanner } from './model/HomeBanner';
 import { Response } from './model/Response';
 
@@ -45,5 +46,9 @@ export class Api {
 
   async getHomeBanner(): Promise<Response<Array<HomeBanner>>> {
     return requestSync("banner/json", http.RequestMethod.GET)
+  }
+
+  async getHomeArticles(pageNumber: number): Promise<Response<ArticlesData>> {
+    return requestSync("article/list/" + pageNumber + "/json", http.RequestMethod.GET)
   }
 }
