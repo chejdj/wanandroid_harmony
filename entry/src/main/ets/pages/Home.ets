@@ -3,9 +3,8 @@ import { Article } from '../networks/model/ArticlesData'
 import { HomeBanner } from '../networks/model/HomeBanner'
 import { PullToRefresh } from '@ohos/pulltorefresh'
 
-@Entry
 @Component
-struct Home {
+export struct Home {
   @State private homeData: Array<Object> = []
   private currentPage: number = 0
   private scroller: Scroller = new Scroller()
