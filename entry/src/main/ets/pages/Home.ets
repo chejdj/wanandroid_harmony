@@ -112,18 +112,15 @@ export struct Home {
         } else {
           ListItem() {
             this.ArticleDetailLayout(item as Article)
-          }.borderRadius(8).shadow({
-            radius: 4,
-            color: `rgba(0,0,0,0.3)`
-          }
-          ).width('100%').margin({
-            top: 12,
-            left: 12,
-            right: 12
-          })
+          }.width('100%')
         }
       })
-    }.listDirection(Axis.Vertical).width('100%').height('100%').edgeEffect(EdgeEffect.None)
+    }
+    .listDirection(Axis.Vertical)
+    .width('100%')
+    .height('100%')
+    .alignListItem(ListItemAlign.Center)
+    .edgeEffect(EdgeEffect.None)
   }
 
   @Builder
@@ -131,12 +128,13 @@ export struct Home {
     Column() {
       Text(item.title)
         .fontSize(18)
+        .maxLines(2)
+        .textOverflow({ overflow: TextOverflow.Ellipsis })
         .fontColor(0x00000000)
         .margin({
           top: 8,
           bottom: 8
         })
-        .width('100%')
         .padding({
           top: 8
         })
@@ -154,11 +152,20 @@ export struct Home {
         Text(item.author).fontSize(12).fontColor(0xD0D0D0).margin({
           left: 8
         })
-      }.margin({ bottom: 8 })
-    }.width('100%').alignItems(HorizontalAlign.Start).padding({
+      }.margin({ bottom: 8 }).width('100%').clip(true)
+    }
+    .width('96%')
+    .alignItems(HorizontalAlign.Start)
+    .padding({
       left: 8,
       right: 8
     })
+    .margin({
+      top: 12
+    })
+    .borderColor(`rgba(0,0,0,0.3)`)
+    .borderWidth(1)
+    .borderRadius(8)
   }
 }
 /**
